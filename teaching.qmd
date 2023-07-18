@@ -1,0 +1,43 @@
+# Teaching
+
+I hold a Certificate in Learning and Teaching in Higher Education from Newcastle University.
+
+## Special courses
+
+### Forthcoming
+
+Living Norway Open Science Training ["Research Course on Open, Reproducible and Transparent Science in Ecology"](https://livingnorway.no/2023/06/13/research-course-on-open-reproducible-and-transparent-science-in-ecology/), Hjerkinn, Norway 13--18 November 2023
+
+### Recent
+
+- Living Norway Open Science Training ["Open, Reproducible, and Transparent Science in Ecology"](https://open-science-course.github.io/course_website/courses), team member, Finse, Norway, 2022
+- R for palaeoecologists, Course Leader, University of Cape Town, 2019
+- [Plant functional traits course](https://plantfunctionaltraitscourses.w.uib.no/), Team member, UNIS, Svalbard, 2018
+- [Plant functional traits course](https://plantfunctionaltraitscourses.w.uib.no/), Team member, Chengdu, China, 2015
+
+## Regular courses
+
+### University of Bergen
+
+I am the course leader for three 5 ECTS Master's level courses.
+
+-   [Bio300B](https://www.uib.no/en/course/BIO300B) -- Biostatistics
+-   [Bio302](https://www.uib.no/en/course/BIO302) -- Biological data analysis II\
+-   [Bio303](https://www.uib.no/en/course/BIO303) -- Ordination and gradient analysis
+
+I also make contributions to
+
+-   [Bio250](https://www.uib.no/en/course/BIO250) -- Palaeoecology. I teach the section on dating and age depth models.
+
+## Rklubben
+
+I host a weekly peer-learning drop-in session for R code (and statistical) problems (Fridays 1400-1600 in [Tunet](https://link.mazemap.com/8DAdjHvl)).
+
+## Teaching resources
+
+![](https://biostats-r.github.io/biostats/figures/icons_all.png)
+
+Together with Dr Aud Halbritter, Dr Jonathan Soulé and others, I wrote [Enough R to write a thesis](https://biostats-r.github.io/).
+This is a collection of interactive workbooks and shiny apps to teach the use of [R](https://biostats-r.github.io/biostats/workingInR/), [quarto for reproducible documents](https://biostats-r.github.io/biostats/quarto/), [git and GitHub for version control](https://biostats-r.github.io/biostats/github/), and [R package development](https://biostats-r.github.io/biostats/package/).
+
+These workbooks are used to support regular and special courses.

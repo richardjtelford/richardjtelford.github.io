@@ -7,10 +7,28 @@ website:
   search: true
   repo-url: https://github.com/richardjtelford/richardjtelford.github.io
   navbar:
+    background: warning
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - collaborate.qmd
+      - teaching.qmd
+      - research.qmd
+      - publications.qmd
+    tools:
+      - icon: twitter
+        href: https://twitter.com/richardjtelford
+      - icon: github
+        menu:
+          - text: Source Code
+            url:  https://github.com/richardjtelford/richardjtelford.github.io/
+          - text: Report a Bug
+            url:  https://github.com/richardjtelford/richardjtelford.github.io/issues
+  page-footer:
+    border: true
+    center:
+    - text: "About"
+      href: about.qmd
 
 highlight-style: a11y
 
@@ -24,8 +42,9 @@ format:
       light: [zephyr, css/custom.scss]
       dark: [zephyr, css/dark.scss, css/custom.scss]
     code-link: true
-    css: styles.css
     toc: true
 
+execute: 
+  echo: false
 
 

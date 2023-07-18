@@ -1,0 +1,6 @@
+# About
+
+This website was made with [quarto](https://quarto.org) and hosted on [GitHub pages](https://pages.github.com/).
+
+The quarto source files that make this website can be found in the [GitHub repo](https://github.com/richardjtelford/richardjtelford.github.io/).
+Perhaps they will help you make your website.

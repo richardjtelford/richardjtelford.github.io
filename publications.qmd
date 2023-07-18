@@ -1,0 +1,121 @@
+# Publications
+
+```{r load}
+library("RefManageR")
+bib <- ReadBib("resources/works.bib")
+
+for(i in 1:length(bib)){
+  bib[[i]]$isbn <- NULL
+  bib[[i]]$pages <- gsub("(?<!-)-(?!-)", "--", gsub(" ", "", bib[[i]]$pages), perl = TRUE)
+  if(!is.null(bib[[i]]$doi)){
+      bib[[i]]$doi <- gsub(".*\\.org/", "", bib[[i]]$doi)
+    bib[[i]]$url <- NULL
+  }
+}
+
+```
+
+
+Number ISI citations: 5,493\
+H-index: 41\
+Number of papers: `r sum(bib$bibtype == "Article")`\
+Number of book chapters: `r sum(bib$bibtype == "InBook")`  
+
+## Journal Articles
+```{r papers, results = "asis"}
+
+writeLines_old <- writeLines
+
+writeLines2 <- function (text, con = stdout(), sep = "\n", useBytes = FALSE) 
+{
+  text <- fix_text(text)
+  
+    if (is.character(con)) {
+        con <- file(con, "w")
+        on.exit(close(con))
+    }
+    .Internal(writeLines(text, con, sep, useBytes))
+}
+
+
+unlockBinding("writeLines", as.environment("package:base"))
+assign("writeLines", writeLines2, "package:base")
+
+fix_text1 <- function(text) {
+  text <- gsub("(?<!\\*)Telford, R. J,", "**Telford, R. J.**,", text, perl = TRUE)
+  text <- gsub("(?<!\\*)Telford, R\\. J\\. ?", "**Telford, R. J.** ", text, perl = TRUE)
+  text <- gsub("(?<!\\*)Telford, R\\.", "**Telford, R. J.** ", text, perl = TRUE)
+  text <- gsub("(?<!\\*)R. Telford", "**R. J. Telford**", text, perl = TRUE)
+  text <- gsub("(?<!\\*)R. J. Telford", "**R. J. Telford**", text, perl = TRUE)
+  text <- gsub("<a name=bib-.*>\\[", "", text)
+  text <- gsub("]\\(#cite-.*)", "", text)
+  text <- gsub("`", "", text)
+  text <- gsub("DOI: ", "", text)
+  text <- gsub("URL: ", "", text)
+  text
+}
+
+fix_text <- function(text){
+
+  text <- fix_text1(text)
+  text <- gsub("In:", "", text)
+  text <- gsub(" p{1,2}\\.", "", text)
+  text <- gsub("\\.,", ",", text)
+
+  text
+}
+
+
+papers <- bib[bib$bibtype == "Article"]
+
+NoCite(papers)
+PrintBibliography(papers, .opts = list(style = "markdown", bib.style = "authoryear", sorting = "ydnt", max.names = Inf, no.print.fields = c("number", "eprint", "issn")))
+```
+
+\* Joint first author
+
+## Book Chapters
+
+```{r chapters, results = "asis"}
+fix_text <- function(text){
+  text <- fix_text1(text)
+}
+
+
+chapters <- bib[bib$bibtype == "InBook"]
+
+  
+NoCite(chapters)
+PrintBibliography(chapters, .opts = list(style = "markdown", bib.style = "authoryear", sorting = "ydnt", max.names = 20))
+
+```
+
+
+## R packages
+
+```{r packages, results = "asis"}
+
+packages <- bib[bib$bibtype == "Manual"]
+
+  
+NoCite(packages)
+PrintBibliography(packages, .opts = list(style = "markdown", bib.style = "authoryear", sorting = "ydnt", max.names = 20))
+
+```
+
+
+## Presentations and Posters (Selected)
+
+```{r conferences, results = "asis"}
+
+conference <- ReadBib("resources/conferences.bib")
+
+NoCite(conference)
+PrintBibliography(conference, .opts = list(style = "markdown", bib.style = "authoryear", sorting = "ydnt", max.names = 20, no.print.fields = "ISSN"))
+```
+
+
+```{r tidy}
+unlockBinding("writeLines", as.environment("package:base"))
+assign("writeLines", writeLines_old, "package:base")
+```

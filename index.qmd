@@ -1,11 +1,23 @@
 ---
-title: "richardjtelford.github.io"
+title: "Richard J. Telford"
+about:
+  template: jolla
+  image: resources/telford2_2_1.jpg
+  links:
+    - icon: twitter
+      text: "@richardjtelford"
+      href: https://twitter.com/richardjtelford
+    - icon: github
+      text: Github
+      href: https://github.com/richardjtelford/
+    - text: "{{< ai google-scholar >}} Google Scholar"
+      href: https://scholar.google.com/citations?user=XoVtEAYAAAAJ
+    - text: "{{< ai orcid >}} 0000-0001-9826-3076"
+      href: https://orcid.org/0000-0001-9826-3076
+    - icon: wordpress
+      text: quantpalaeo
+      href: https://quantpalaeo.wordpress.com/
 ---
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-```{r}
-1 + 1
-```
+Richard Telford is a Associate Professor in Plant Ecology in the [Department of Biological Sciences](https://www.uib.no/en/bio), [University of Bergen](https://www.uib.no/en). 
+His main research interests are in quantitative palaeoecology, and in open and reproducible science. He teaches biostatistics using R.
