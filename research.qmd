@@ -2,4 +2,34 @@
 
 ## Ongoing Research
 
+### Durin
+
+The NFR-funded [Durin](https://betweenthefjords.w.uib.no/durin/) explores the under-appreciated roles of dwarf-shrubs in responding to and influencing global climate change.
+
+Role: Partner
+
+### ExperTS
+
+[ExperTS](https://prosjektbanken.forskningsradet.no/en/project/FORISS/287784) is the latest of several projects funding training in trait-based ecology.
+
+Role: Partner
+
 ## Past projects
+
+### PalaeoDrivers
+
+[PalaeoDrivers](https://www.uib.no/en/rg/EECRG/57369/palaeodrivers) was an NFR funded project to develop methods to test the significance of quantitative palaeoenvironmental reconstructions.
+
+Role: PI
+
+### The Matrix
+
+[The Matrix](https://www.uib.no/en/rg/EECRG/55396/matrix) was an NFR-funded collaboration with Makerere University, Uganda, to explore biodiversity in the fragmented tropical forests and the surrounding agricultural matrix.
+
+Role: Co-PI
+
+### FunCaB
+
+[FunCab](https://betweenthefjords.w.uib.no/funcab-en/) was an NFR funded project to investigate the role of Functional group interactions in mediating climate change impacts on the Carbon dynamics and Biodiversity of alpine ecosystems using the [Vestland climate grid](https://betweenthefjords.w.uib.no/vestland-climate-grid/).
+
+Role: Partner
