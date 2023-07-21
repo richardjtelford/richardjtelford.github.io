@@ -7,11 +7,10 @@ bib <- ReadBib("resources/works.bib")
 
 for(i in 1:length(bib)){
   bib[[i]]$pages <- gsub("(?<!-)-(?!-)", "--", gsub(" ", "", bib[[i]]$pages), perl = TRUE)
-  if(!is.null(bib[[i]]$doi)){
-      bib[[i]]$doi <- gsub(".*\\.org/", "", bib[[i]]$doi)
-    bib[[i]]$url <- NULL
-  }
 }
+
+# TODO#
+# remove .. from after editors
 
 ```
 
@@ -22,12 +21,12 @@ Number of papers: `r sum(bib$bibtype == "Article")`\
 Number of book chapters: `r sum(bib$bibtype == "InBook")`  
 
 ## Journal Articles
-```{r papers, results = "asis", eval = FALSE}
+```{r papers, results = "asis"}
 
 papers <- bib[bib$bibtype == "Article"]
 
 NoCite(papers)
-PrintBibliography(papers, .opts = list(style = "markdown", sorting = "ydnt", max.names = Inf, no.print.fields = c("number", "eprint", "issn", "isbn")))
+PrintBibliography(papers, .opts = list(style = "markdown", sorting = "ydnt", max.names = Inf, no.print.fields = c("number", "eprint", "issn", "isbn", "url", "month", "date")))
 ```
 
 \* Joint first author
@@ -39,7 +38,7 @@ PrintBibliography(papers, .opts = list(style = "markdown", sorting = "ydnt", max
 chapters <- bib[bib$bibtype == "InBook"]
   
 NoCite(chapters)
-PrintBibliography(chapters, .opts = list(style = "markdown", sorting = "ydnt", max.names = 20, no.print.fields = c("number", "eprint", "issn", "isbn")))
+PrintBibliography(chapters, .opts = list(style = "markdown", sorting = "ydnt", max.names = 20, no.print.fields = c("number", "eprint", "issn", "isbn", "url", "month", "date")))
 
 ```
 
@@ -63,5 +62,5 @@ PrintBibliography(packages, .opts = list(style = "markdown", sorting = "ydnt", m
 conference <- ReadBib("resources/conferences.bib")
 
 NoCite(conference)
-PrintBibliography(conference, .opts = list(style = "markdown", sorting = "ydnt", max.names = 20, no.print.fields = "ISSN"))
+PrintBibliography(conference, .opts = list(style = "markdown", sorting = "ydnt", max.names = 20, no.print.fields = c("ISSN", "month", "date")))
 ```

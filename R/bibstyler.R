@@ -36,26 +36,58 @@ with(custom,
 custom$formatInBook <- function (paper, bookinbook = FALSE) 
 {
   if (length(paper$booktitle) && length(paper$maintitle)) {
-    collapse(c(fmtPrefix(paper), fmtBAuthor(paper), fmtIBTitle(paper$title, 
-                                                               paper$subtitle, bookinbook), fmtAddOn(paper$titleaddon), 
-               fmtLanguage(paper$language), paste0(c("In: ", fmtIBAuthor(paper$bookauthor), 
-                                                     fmtBTitle(paper$maintitle, paper$mainsubtitle))), 
-               fmtAddOn(paper$maintitleaddon), paste0(c(fmtBVolume(paper$volume, 
-                                                                   paper$part), fmtBTitle(paper$booktitle, paper$booksubtitle)), 
-                                                      collapse = ": "), fmtAddOn(paper$booktitleaddon), 
-               fmtEditor(paper, !length(paper$author)), fmtTranslator(paper), 
-               fmtCommentator(paper$commentator), fmtAnnotator(paper$annotator), 
-               fmtIntroduction(paper$introduction), fmtForeword(paper$foreword), 
-               fmtAfterword(paper$afterword), fmtEdition(paper$edition), 
-               fmtVolumes(paper$volumes), sentence(cleanupLatex(paper$series), 
-                                                   paper$number, sep = " "), fmtNote(paper$note), 
-               sentenceP(fmtPublisher(paper$publisher, paper$location, 
-                                      paper$address), fmtDate(attr(paper, "dateobj")), 
-                         fmtChapter(paper$chapter), pgs = fmtPages(paper$pages, 
-                                                                   paper$bookpagination), tp = fmtTotalPages(paper$pagetotal, 
-                                                                                                             paper$bookpagination), sep = ""), fmtISBN(paper$isbn), 
-               fmtDOI(paper$doi), fmtEprint(paper), fmtURL(paper), 
-               fmtAddendum(paper$addendum), fmtPubstate(paper$pubstate)))
+    collapse(
+      c(
+        fmtPrefix(paper),
+        fmtBAuthor(paper),
+        fmtJournDate(paper),
+        fmtIBTitle(paper$title,
+                   paper$subtitle, bookinbook),
+        fmtAddOn(paper$titleaddon),
+        fmtLanguage(paper$language),
+        paste0(c(
+          "In: ",
+          fmtIBAuthor(paper$bookauthor),
+          fmtBTitle(paper$maintitle, paper$mainsubtitle)
+        )),
+        fmtAddOn(paper$maintitleaddon),
+        paste0(c(
+          fmtBVolume(paper$volume,
+                     paper$part),
+          fmtBTitle(paper$booktitle, paper$booksubtitle)
+        ),
+        collapse = ": "),
+        fmtAddOn(paper$booktitleaddon),
+        fmtEditor(paper,!length(paper$author)),
+        fmtTranslator(paper),
+        fmtCommentator(paper$commentator),
+        fmtAnnotator(paper$annotator),
+        fmtIntroduction(paper$introduction),
+        fmtForeword(paper$foreword),
+        fmtAfterword(paper$afterword),
+        fmtEdition(paper$edition),
+        fmtVolumes(paper$volumes),
+        sentence(cleanupLatex(paper$series),
+                 paper$number, sep = " "),
+        fmtNote(paper$note),
+        sentenceP(
+          fmtPublisher(paper$publisher, paper$location,
+                       paper$address),
+  #        fmtChapter(paper$chapter),
+          pgs = fmtPages(paper$pages,
+                         paper$bookpagination),
+          tp = fmtTotalPages(paper$pagetotal,
+                             paper$bookpagination),
+          sep = ""
+        ),
+        fmtISBN(paper$isbn),
+        fmtDOI(paper$doi),
+        fmtEprint(paper),
+        fmtURL(paper),
+        fmtAddendum(paper$addendum),
+        fmtPubstate(paper$pubstate)
+      )
+    )
   }
   else {
     if (length(paper$maintitle)) {
@@ -63,7 +95,7 @@ custom$formatInBook <- function (paper, bookinbook = FALSE)
       paper$booksubtitle <- paper$mainsubtitle
       paper$booktitleaddon <- paper$maintitleaddon
     }
-    collapse(c(fmtPrefix(paper), fmtBAuthor(paper), fmtIBTitle(paper$title, 
+    collapse(c(fmtPrefix(paper), fmtBAuthor(paper), fmtJournDate(paper), fmtIBTitle(paper$title, 
                                                                paper$subtitle, bookinbook), fmtAddOn(paper$titleaddon), 
                fmtLanguage(paper$language), paste0(c("In: ", fmtIBAuthor(paper$bookauthor), 
                                                      fmtBTitle(paper$booktitle, paper$booksubtitle))), 
@@ -75,11 +107,12 @@ custom$formatInBook <- function (paper, bookinbook = FALSE)
                addPeriod(fmtBVolume(paper$volume, paper$part)), 
                fmtVolumes(paper$volumes), sentence(cleanupLatex(paper$series), 
                                                    paper$number, sep = " "), fmtNote(paper$note), 
-               sentenceP(fmtPublisher(paper$publisher, paper$location, 
-                                      paper$address), fmtDate(attr(paper, "dateobj")), 
-                         fmtChapter(paper$chapter), pgs = fmtPages(paper$pages, 
-                                                                   paper$bookpagination), tp = fmtTotalPages(paper$pagetotal, 
-                                                                                                             paper$bookpagination), sep = ""), fmtISBN(paper$isbn), 
+               sentenceP(
+                 fmtPublisher(paper$publisher, paper$location, paper$address),
+ #                fmtChapter(paper$chapter),
+                 pgs = fmtPages(paper$pages, paper$bookpagination), 
+                 tp = fmtTotalPages(paper$pagetotal, paper$bookpagination), sep = ""), 
+               fmtISBN(paper$isbn), 
                fmtDOI(paper$doi), fmtEprint(paper), fmtURL(paper), 
                fmtAddendum(paper$addendum), fmtPubstate(paper$pubstate)))
   }
@@ -108,11 +141,10 @@ custom$formatManual <- function (paper) {
 ## unpublished
 with(custom, 
 custom$formatUnpublished <- function (paper) {
-  collapse(c(fmtPrefix(paper), fmtBAuthor(paper), fmtIBTitle(paper$title, 
+  collapse(c(fmtPrefix(paper), fmtBAuthor(paper), fmtJournDate(paper), fmtIBTitle(paper$title, 
                                                              paper$subtitle, FALSE), fmtAddOn(paper$titleaddon), fmtLanguage(paper$language), 
              fmtHowPublished(paper$howpublished), fmtNote(paper$note), 
-             sentence(fmtPublisher(NULL, paper$location, paper$address), 
-                      fmtDate(attr(paper, "dateobj")), sep = ""), fmtDOI(paper$doi), 
+             sentence(fmtPublisher(NULL, paper$location, paper$address), sep = ""), fmtDOI(paper$doi), 
              fmtURL(paper), fmtAddendum(paper$addendum), fmtPubstate(paper$pubstate)))
 }
 )
@@ -120,7 +152,7 @@ custom$formatUnpublished <- function (paper) {
 with(custom, 
 custom$formatInProceedings <- function (paper) {
   if (length(paper$booktitle) && length(paper$maintitle)) {
-    collapse(c(fmtPrefix(paper), fmtBAuthor(paper), fmtIBTitle(paper$title, 
+    collapse(c(fmtPrefix(paper), fmtBAuthor(paper), fmtJournDate(paper), fmtIBTitle(paper$title, 
                                                                paper$subtitle, FALSE), fmtAddOn(paper$titleaddon), 
                fmtLanguage(paper$language), paste0(c("In: ", fmtBTitle(paper$maintitle, 
                                                                        paper$mainsubtitle))), fmtAddOn(paper$maintitleaddon), 
@@ -134,8 +166,7 @@ custom$formatInProceedings <- function (paper) {
                fmtAfterword(paper$afterword), fmtVolumes(paper$volumes), 
                sentence(cleanupLatex(paper$series), paper$number, 
                         sep = " "), fmtNote(paper$note), fmtOrganization(paper$organization), 
-               sentenceP(fmtPublisher(paper$publisher, paper$location, 
-                                      paper$address), fmtDate(attr(paper, "dateobj")), 
+               sentenceP(fmtPublisher(paper$publisher, paper$location, paper$address), 
                          fmtChapter(paper$chapter), pgs = fmtPages(paper$pages, 
                                                                    paper$bookpagination), tp = fmtTotalPages(paper$pagetotal, 
                                                                                                              paper$bookpagination), sep = ""), fmtISBN(paper$isbn), 
@@ -148,7 +179,7 @@ custom$formatInProceedings <- function (paper) {
       paper$booksubtitle <- paper$mainsubtitle
       paper$booktitleaddon <- paper$maintitleaddon
     }
-    collapse(c(fmtPrefix(paper), fmtBAuthor(paper), fmtIBTitle(paper$title, 
+    collapse(c(fmtPrefix(paper), fmtBAuthor(paper), fmtJournDate(paper), fmtIBTitle(paper$title, 
                                                                paper$subtitle, FALSE), fmtAddOn(paper$titleaddon), 
                fmtLanguage(paper$language), paste0(c("In: ", fmtBTitle(paper$booktitle, 
                                                                        paper$booksubtitle))), fmtAddOn(paper$booktitleaddon), 
@@ -161,8 +192,7 @@ custom$formatInProceedings <- function (paper) {
                                                                    paper$part)), fmtVolumes(paper$volumes), sentence(cleanupLatex(paper$series), 
                                                                                                                      paper$number, sep = " "), fmtNote(paper$note), 
                fmtOrganization(paper$organization), sentenceP(fmtPublisher(paper$publisher, 
-                                                                           paper$location, paper$address), fmtDate(attr(paper, 
-                                                                                                                        "dateobj")), fmtChapter(paper$chapter), pgs = fmtPages(paper$pages, 
+                                                                           paper$location, paper$address), fmtChapter(paper$chapter), pgs = fmtPages(paper$pages, 
                                                                                                                                                                                paper$bookpagination), tp = fmtTotalPages(paper$pagetotal, 
                                                                                                                                                                                                                          paper$bookpagination), sep = ""), fmtISBN(paper$isbn), 
                fmtDOI(paper$doi), fmtEprint(paper), fmtURL(paper), 
@@ -170,6 +200,15 @@ custom$formatInProceedings <- function (paper) {
   }
 }
 )
+with(custom,
+     custom$addPeriod <- function (string) {
+       if (!.is_not_nonempty_text(string) && 
+           grepl("([^.?!])$", string, useBytes = FALSE) &&
+           !grepl(".\\*{1,2}$", string, useBytes = FALSE ))
+         paste0(string, ".")
+       else
+         string
+     })
 
 # fragments
 
@@ -209,7 +248,11 @@ with(
 with(
   custom,
   custom$fmtDOI <- function (s) {
-    if (length(s)) badger::badge_doi(gsub("-", "--", collapse(s)), color = "green")
+    if (length(s)) {
+      s <- collapse(s)
+      s <- gsub(".*\\.org/", "", s)
+      badger::badge_doi(gsub("-", "--", s), color = "green")
+      }
     }
 )
 with(
@@ -256,6 +299,22 @@ with(custom,
 
      }
   )
+with(custom, 
+     custom$fmtPublisher <- function (pub, loc, addr) {
+       if (length(loc) || length(addr)) {
+         res <- if (length(loc)) 
+           plainclean(loc)
+         else plainclean(addr)
+         if (length(pub)) 
+           res <- paste(res, plainclean(pub), sep = ": ")
+         res
+       }
+       else if (length(pub)) {
+         plainclean(pub)
+       }
+     }
+     )
+
 
 tools::bibstyle("custom", custom)
 BibOptions(bib.style = "custom", max.names=200)
