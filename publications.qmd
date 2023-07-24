@@ -15,7 +15,7 @@ for(i in 1:length(bib)){
 ```
 
 
-Number ISI citations: 5,493\
+Number ISI citations: 5,525\
 H-index: 41\
 Number of papers: `r sum(bib$bibtype == "Article")`\
 Number of book chapters: `r sum(bib$bibtype == "InBook")`  
