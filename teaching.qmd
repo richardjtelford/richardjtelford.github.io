@@ -6,10 +6,13 @@ I hold a Certificate in Learning and Teaching in Higher Education from Newcastle
 
 ### Forthcoming
 
-Living Norway Open Science Training ["Research Course on Open, Reproducible and Transparent Science in Ecology"](https://livingnorway.no/2023/06/13/research-course-on-open-reproducible-and-transparent-science-in-ecology/), Hjerkinn, Norway 13--18 November 2023
+Living Norway Open Science Training ["Research Course on Open, Reproducible and Transparent Science in Ecology"](https://livingnorway.no/2023/06/13/research-course-on-open-reproducible-and-transparent-science-in-ecology/), Finse, Norway 19--24 October 2026
 
 ### Recent
 
+- Living Norway Open Science Training ["Open, Reproducible, and Transparent Science in Ecology"](https://open-science-course.github.io/course_website/courses), team member, Hjerkinn, Norway, 2025
+- Living Norway Open Science Training ["Open, Reproducible, and Transparent Science in Ecology"](https://open-science-course.github.io/course_website/courses), team member, Hjerkinn, Norway, 2024
+- Living Norway Open Science Training ["Open, Reproducible, and Transparent Science in Ecology"](https://open-science-course.github.io/course_website/courses), team member, Hjerkinn, Norway, 2023
 - Living Norway Open Science Training ["Open, Reproducible, and Transparent Science in Ecology"](https://open-science-course.github.io/course_website/courses), team member, Finse, Norway, 2022
 - R for palaeoecologists, Course Leader, University of Cape Town, 2019
 - [Plant functional traits course](https://plantfunctionaltraitscourses.w.uib.no/), Team member, UNIS, Svalbard, 2018
@@ -22,7 +25,7 @@ Living Norway Open Science Training ["Research Course on Open, Reproducible and 
 I am the course leader for three 5 ECTS Master's level courses.
 
 -   [Bio300B](https://www.uib.no/en/course/BIO300B) -- Biostatistics
--   [Bio302](https://www.uib.no/en/course/BIO302) -- Biological data analysis II\
+-   [Bio302](https://www.uib.no/en/course/BIO302) -- Methods for reproducible and open science\
 -   [Bio303](https://www.uib.no/en/course/BIO303) -- Ordination and gradient analysis
 
 I also make contributions to

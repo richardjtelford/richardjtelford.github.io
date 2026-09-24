@@ -8,3 +8,4 @@
 /_extensions/
 
 resources/*.bib.sav
+**/*.quarto_ipynb

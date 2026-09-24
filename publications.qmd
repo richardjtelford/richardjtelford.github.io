@@ -15,12 +15,13 @@ for(i in 1:length(bib)){
 ```
 
 
-Number ISI citations: 5,525\
-H-index: 41\
+Number ISI citations: 7880\
+H-index: 43\
 Number of papers: `r sum(bib$bibtype == "Article")`\
 Number of book chapters: `r sum(bib$bibtype == "InBook")`  
 
 ## Journal Articles
+
 ```{r papers, results = "asis"}
 
 papers <- bib[bib$bibtype == "Article"]
