@@ -38,9 +38,25 @@ I host a weekly peer-learning drop-in session for R code (and statistical) probl
 
 ## Teaching resources
 
+### Enough R to write a thesis
+
 ![](https://biostats-r.github.io/biostats/figures/icons_all.png)
 
 Together with Dr Aud Halbritter, Dr Jonathan Soulé and others, I wrote [Enough R to write a thesis](https://biostats-r.github.io/).
 This is a collection of interactive workbooks and shiny apps to teach the use of [R](https://biostats-r.github.io/biostats/workingInR/), [quarto for reproducible documents](https://biostats-r.github.io/biostats/quarto/), [git and GitHub for version control](https://biostats-r.github.io/biostats/github/), and [R package development](https://biostats-r.github.io/biostats/package/).
 
 These workbooks are used to support regular and special courses.
+
+### Open lecture notes
+
+Lecture notes and other material for my courses are available from GitHub.
+
+### Teaching packages, tutorial and apps
+
+- shinyleaves: a shiny app to help explain how leaf scans are processed to calculate leaf area.
+- checker: an R package to check students have correctly installed R. This package greatly reduces the number of students with problems trying to use old versions of R.
+- register: an R package to make quizes on canvas to register attendance in class.
+- biostats.tutorials -
+- ptfc
+
+

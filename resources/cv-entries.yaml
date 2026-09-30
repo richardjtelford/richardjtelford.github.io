@@ -1,0 +1,264 @@
+employment:
+  entry1:
+    title: "Associate Professor of Plant Ecology"
+    organization: "University of Bergen"
+    location: "Bergen, Norway"
+    dates: "2007–present"
+    short: true
+  entry2:
+    title: "Postdoctoral Researcher (Forsker II)"
+    organization: "Bjerknes Centre for Climate Research"
+    location: "Bergen, Norway"
+    dates: "2003–2006"
+    short: true
+  entry3:
+    title: "Research Associate and Teaching Fellow"
+    organization: "Newcastle University"
+    location: "Newcastle, U.K."
+    dates: "2000–2002"
+    short: true
+  entry4:
+    title: "Research Associate and Teaching Fellow"
+    organization: "Lancaster University"
+    location: "Lancaster, U.K."
+    dates: "1998–2000"
+    short: true
+
+education:      
+  entry1:
+    title: "Certificate in Learning and Teaching in Higher Education "
+    organization: "Newcastle University"
+    location: "Newcastle, U.K."
+    dates: "2000–2001"
+    short: false
+  entry2:
+    title: "Ph.D. in Earth Sciences"
+    organization: "University of Wales, Aberystwyth"
+    location: "Aberystwyth, Wales"
+    dates: "1995–1998"
+    description: '\"Diatom stratigraphies of Lakes Awassa and Tilo, Ethiopia: Holocene records of groundwater variability and climate change.\" Supervised by Dr H. F. Lamb.' 
+    short: true
+  entry3:
+    title: "B.A. (Hons) 2.1 Natural Sciences (Plant Sciences) "
+    organization: "Clare College, Cambridge University"
+    location: "Cambridge, U.K."
+    dates: "1991–1994"
+    description: "Secondary subjects: Geology and Ecology"
+    short: true
+ 
+teaching: 
+  entry1:
+    title: "Bio300b Biostatistics" 
+    location: "Course leader"
+    organization: "University of Bergen"
+    dates: "2022–present"
+    short: true
+  entry2:
+    title: "Bio302 Methods for Open and Reproducible Science"
+    organization: "University of Bergen"
+    location: "Course leader"
+    dates: "2025–present"
+    short: true
+  entry4:
+    title: "Bio303 Ordination and Gradient Analysis"
+    organization: "University of Bergen"
+    dates: "2007–present"
+    location: "Course leader"
+    short: true
+  entry5:
+    title: "Bio250 Palaeoecology"
+    organization: "University of Bergen"
+    dates: "2007–present"
+    location: "Team member"
+    short: true
+  entry51:
+    title: "Bio940 Open, Reproducible and Transparent Science in Ecology"
+    organization: "University of Bergen/Living Norway"
+    dates: "2022–present"
+    location: "Team member"
+    short: true  
+  entry52:
+    title: "Plant Functional Trait Course"
+    organization: "University of Bergen/University of Arizona"
+    dates: "2015–2023"
+    location: "Team member"
+    short: true
+  entry3:
+    title: "Bio302 Biological data analysis II"
+    organization: "University of Bergen"
+    location: "Course leader"
+    dates: "2007–2024"
+    short: true  
+  entry53:
+    title: "R for Palaeoecologists"
+    organization: "University of Cape Town"
+    dates: "2019"
+    location: "Course leader"
+    short: true  
+  entry6:
+    title: "Recent Environmental Change "
+    organization: "University of Newcastle"
+    dates: "2002"
+    location: "Temp course leader"
+    short: false
+  entry7:
+    title: "Holocene Environmental Change"
+    organization: "University of Lancaster"
+    dates: "2000"
+    location: "Temp course leader"
+    short: false
+  entry8:
+    title: "Physical Geography of the British Isles"
+    organization: "University of Lancaster"
+    dates: "2000"
+    location: "Temp course leader"
+    short: false
+    
+workshops:
+  entry1:
+    title: "Reproducible data analysis"
+    organization: "Københavns Universitet"
+    dates: "2018"
+    location: "Workshop leader"
+    short: true
+  entry2:
+    title: "Age-depth modelling"
+    organization: "2nd COST INTIMATE training school"
+    dates: "2014"
+    location: "Session leader"
+    short: true
+  entry3:
+    title: "Age-depth modelling"
+    organization: "ECORD summer school"
+    dates: "2013"
+    location: "Session leader"
+    short: true
+supervision-postdoc:
+  entry1:
+    title: "Amy Eycott"
+    organization: "Matrix Project"
+    dates: "2009–2015"
+    location: "Co-supervisor"
+  entry2:
+    title: "Mathias Trachsel"
+    organization: "PalaeoDrivers Project"
+    dates: "2012–2016"
+    location: "Supervisor"
+supervision-phd:
+  entry7:
+    title: "Nadine Michaela Arzt"
+    organization: "Mechanisms underlying the success of range-expanding species under climate change and their impacts on biodiversity and ecosystem functioning"
+    dates: "2023–Ongoing"
+    location: "Co-supervisor"
+  entry6:
+    title: "Cecilie Iden Nilsen"
+    organization: "Acoustic telemetry of salmonids in lakes"
+    dates: "2025–Ongoing"
+    location: "Co-supervisor"
+  entry5:
+    title: "Mari Lie Larsen"
+    organization: "Evidence-based policymaking: Exploring the effectiveness of salmon aquaculture management in Norway"
+    dates: "2022–2025"
+    location: "Co-supervisor"
+    
+  entry4:
+    title: "Siri Vatsø Haugum"
+    organization: "Land-use and climate impacts on drought resistance and resilience in coastal heathland ecosystems"
+    dates: "2016–2021"
+    location: "Co-supervisor"
+    
+  entry3:
+    title: "Shad Kenneth Mahlum"
+    organization: "From the fjords to the rivers: Evaluating the spatial distribution of escaped farmed salmon to inform ecologically relevant management strategies"
+    dates: "2015–2020"
+    location: "Co-supervisor"
+  entry2:
+    title: "Perpetra Akite"
+    organization: "Spatial and matrix influences on the biogeography
+of insect taxa in forest fragments in central Uganda"
+    dates: "2009–2015"
+    location: "Co-supervisor"
+  entry1:
+    title: "Collins Bulafu"
+    organization: "Diversity and reproductive traits of woody species in forest fragments in and around Kampala area, Uganda"
+    dates: "2009–2014"
+    location: "Co-supervisor"
+
+supervision-masters:
+  entry7:
+    title: "Kirsti Rindal"
+    organization: "Brain-gut-microbiota-axis study"
+    dates: "2023–2024"
+    location: "Co-supervisor"
+  entry6:
+    title: "Moss Tesfayesus"
+    organization: "Mangrove forest extent and status along the Eritrean coast"
+    dates: "2013–2014"
+    location: "Co-supervisor"
+  entry5:
+    title: "Sofie Söderström"
+    organization: "Interspecific whale associations in the Norwegian Seas"
+    dates: "2011–2012"
+    location: "Supervisor"
+  entry4:
+    title: "Gunnar Kvifte"
+    organization: "MATRIX: Psychodidae of Budongo Forest"
+    dates: "2009–2011"
+    location: "Supervisor"
+  entry3:
+    title: "Moreen Uwimbabazi"
+    organization: "MATRIX: Bird diversity in forest fragments around Budongo Forest"
+    dates: "2008–2010"
+    location: "Co-supervisor"
+  entry2:
+    title: "Kristoffer Hauge"
+    organization: "MATRIX: Bat biodiversity in tropical forest fragments"
+    dates: "2008–2010"
+    location: "Supervisor"
+  entry1:
+    title: "Therese Kronstad"
+    organization: "MATRIX: Butterfly biodiversity in Ugandan tropical forest
+fragments"
+    dates: "2008–2010"
+    location: "Supervisor"  
+  entry:
+    title: "Wang Manfei"
+    organization: "Population dynamics of trees colonizing coastal heathlands on Lurøy"
+    dates: "2007–2008"
+    location: "Co-supervisor"  
+
+
+
+
+    
+funding:
+  entry1: 
+    title: "PalaeoDrivers: Quantifying the Drivers of Palaeoecological Change"
+    organization: "Research Council of Norway"
+    dates: "2012-2016"
+    location: "PI"
+    amount: "1400k NOK"
+    short: true
+reviewing: 
+  - African Journal of Ecology
+  - Aquaculture
+  - Boreas
+  - Dendrochrologia
+  - Ecography
+  - Ecology and Evolution
+  - Ecology Letters
+  - Environmental Science and Pollution Research International
+  - Flora
+  - Geophysical Research Letters
+  - Global Change Biology
+  - Global Ecology and Biogeography
+  - Journal of Biogeography
+  - Journal of Paleolimnology
+  - Methods in Ecology and Evolution
+  - Nature Communications
+  - Nature Geoscience
+  - PloS one
+  - Science of the Total Environment
+  - Scientific Reports
+  - The Holocene
+  - The International Journal of Sustainable Development and World Ecology

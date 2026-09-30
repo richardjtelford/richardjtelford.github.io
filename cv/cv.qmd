@@ -1,0 +1,326 @@
+---
+format:
+  typst:
+    template: cv-template.typ
+    keep-typ: true
+    keep-md: true
+firstname: "Richard James"
+lastname: "Telford"
+affiliation: "Department of Biological Sciences | University of Bergen"
+address: "Postboks 7803, 5020 Bergen, Norway"
+email: "richard.telford@uib.no"
+website: "richardjtelford.github.io"
+websiteurl: "https://richardjtelford.github.io"
+websitedisplay: "richardjtelford.github.io"
+github: "https://github.com/richardjtelford"
+githubhandle: "richardjtelford"
+linkedin: "https://www.linkedin.com/in/richard-telford-11b4bb24/"
+linkedinhandle: "richard-telford"
+twitter: "https://x.com/richardjtelford"
+twitterhandle: "richardjtelford"
+orcidurl: "https://orcid.org/0000-0001-9826-3076"
+orcidhandle: "0000-0001-9826-3076"
+google-scholar: "https://scholar.google.com/citations?user=XoVtEAYAAAAJ&hl=en"
+google-scholarhandle: "Google Scholar"
+bibliography: ../resources/works.bib
+cvEntries: ../resources/cv-entries.yaml
+suppress-bibliography: true 
+papersize: "a4"
+params: 
+  publications: all
+  short: false
+  showTeaching: true
+  showFunding: true
+  showConferences: false
+  showReferences: false
+  isiCitations: 0
+  hindex: 0
+  phone: "+47 9412xxxx"
+execute:
+  echo: false
+---
+
+```{r}
+#| label: setup
+#| message: false
+library(purrr)
+
+source("../R/cv_entries.R")
+
+cv_entries <- yaml::read_yaml(rmarkdown::metadata$cvEntries)
+
+#cv_entries <- yaml::read_yaml("../resources/cv-entries.yaml")
+```
+
+```{r}
+#| echo: false
+#| output: asis
+
+quarto::write_yaml_metadata_block(
+  params = params
+)
+```
+
+# Employment History
+
+```{r}
+#| label: employment
+#| output: asis
+
+process_entries(cv_entries, "employment")
+```
+
+
+# Education
+
+```{r}
+#| label: education
+#| output: asis
+
+process_entries(cv_entries, "education")
+```
+
+# Research
+
+## Research Interests
+
+```{=typst}
+#service-list(("Palaeoecology", "Quantitative palaeoecological reconstruction", "Climate change", "Climate impacts", "Reproducible science"))
+```
+
+## Publications
+
+```{r}
+#| label: load-pubs
+#| echo: false
+#| eval: true
+
+library(RefManageR)
+source("../R/bibstyler.R")
+
+# Try to read the bibliography file
+
+bib <- ReadBib(rmarkdown::metadata$bibliography)
+bib <- bib_fixes(bib)
+bib <- fix_many_authors(bib, candidate_names(bib, "Telford"), goodname = "Telford, R. J.")
+```
+
+
+```{=typst}
+#pub-summary(
+  ncitations: [`{r} params$isiCitations`],
+  hindex: [`{r} params$hindex`],
+  npapers: `r sum(bib$bibtype == "Article")`,
+  nchapters: `r sum(bib$bibtype == "InBook")`,
+  npackages: `r sum(bib$bibtype == "Manual")`
+) 
+```
+
+
+```{r}
+#| label: subset-pubs
+#| output: false
+# subset required publications
+ if (params$publications[1] != "all") { # get publications in params
+   bib <- bib[params$publications]
+ }
+```
+
+
+
+```{r}
+#| label: subset-pubs-by-type
+#| include: false
+papers <- bib[bib$bibtype == "Article"]
+chapters <- bib[bib$bibtype == "InBook"]
+packages <- bib[bib$bibtype == "Manual"]
+```
+
+
+```{r}
+#| label: papers
+#| output: asis
+#| eval: true
+if (length(papers) > 0) {
+  if (params$publications[1] != "all") {
+    cat("## Selected Journal Articles\n")
+  } else {
+    cat("## Journal Articles\n")
+  }
+  NoCite(papers)
+  PrintBibliography(papers, .opts = list(style = "markdown", sorting = "ydnt", max.names = Inf, no.print.fields = c("number", "eprint", "issn", "isbn", "url", "month", "date")))
+  # cat("\\* Joint first author")
+}
+```
+
+```{r}
+#| label: chapters
+#| output: asis
+#| eval: true
+if (length(chapters) > 0) {
+  cat("## Book Chapters\n")
+  NoCite(chapters)
+  PrintBibliography(chapters, .opts = list(style = "markdown", sorting = "ydnt", max.names = 20, no.print.fields = c("number", "eprint", "issn", "isbn", "url", "month", "date")))
+}
+```
+
+
+```{r}
+#| label: packages
+#| output: asis
+#| eval: true
+if (length(packages) > 0) {
+  cat("
+## R packages\n")
+  NoCite(packages)
+  PrintBibliography(packages, .opts = list(style = "markdown", sorting = "ydnt", max.names = 20))
+}
+```
+
+
+::: {.content-hidden unless-meta="params.showConferences"}
+
+## Presentations and Posters (Selected)
+
+```{r conferences, results = "asis"}
+
+conference <- ReadBib("../resources/conferences.bib")
+
+NoCite(conference)
+PrintBibliography(conference, .opts = list(style = "markdown", sorting = "ydnt", max.names = 20, no.print.fields = c("ISSN", "month", "date")))
+```
+:::
+
+::: {.content-hidden unless-meta="params.showFunding"}
+# Funding
+
+```{r}
+#| label: funding
+#| output: asis
+
+process_entries(cv_entries, "funding")
+
+```
+:::
+
+
+::: {.content-hidden unless-meta="params.showTeaching"}
+# Teaching
+
+## Teaching Interests
+
+```{=typst}
+#service-list(("Open and Reproducible Science", "Quantitative Palaeoecology", "Multivariate Statistics", "Biostatistics with R"))
+```
+
+## Courses Taught
+
+```{r}
+#| label: teaching
+#| output: asis
+
+process_entries(cv_entries, "teaching")
+```
+
+## Workshops Taught
+
+```{r}
+#| label: workshops
+#| output: asis
+
+process_entries(cv_entries, "workshops")
+
+```
+
+
+# Supervision
+
+## Postdoc
+
+```{r}
+#| label: supervision-postdoc
+#| output: asis
+
+process_entries(cv_entries, "supervision-postdoc")
+```
+
+## Ph.D
+
+```{r}
+#| label: supervision-phd
+#| output: asis
+
+process_entries(cv_entries, "supervision-phd")
+```
+
+
+## Masters
+
+```{r}
+#| label: supervision-masters
+#| output: asis
+
+process_entries(cv_entries, "supervision-masters")
+```
+
+:::
+
+# Professional Memberships & Service
+
+234-345
+2345--3456
+
+## Reviewing
+
+```{r}
+#| label: reviewing
+#| output: asis
+cat("```{=typst}\n")
+cat(reviewing(cv_entries$reviewing))
+cat("\n```")
+```
+
+# Skills & Software
+
+```{=typst}
+
+#cv-entry(
+  title: "Methods",
+  description: "Quantitative palaeoecology, age-depth modelling, trait-based ecology, biostatistics"
+)
+
+#cv-entry(
+  title: "Software",
+  description: {
+    "R (expert), shiny (expert), Git (proficient), Quarto (expert), R package development (expert)"
+  }
+)
+```
+
+::: {.content-hidden unless-meta="params.showReferences"}
+
+# Professional References
+
+```{=typst}
+#let my-references = (
+    (
+    name: "Prof. Vigdis Vandvik", 
+    title: "Professor",
+    institution: "Department of Biological Sciences, University of Bergen",
+    address: "Postboks 7803, 5020 Bergen, Norway",
+    email: "vigdis.vandvik@uib.no",
+    phone: "xxx"
+  ),
+   (
+    name: "Prof. Vigdis Vandvik", 
+    title: "Professor",
+    institution: "Department of Biological Sciences, University of Bergen",
+    address: "Postboks 7803, 5020 Bergen, Norway",
+    email: "vigdis.vandvik@uib.no",
+    phone: "xxx"
+  )
+)
+
+#references-section(my-references, show-references: true)
+```
+:::

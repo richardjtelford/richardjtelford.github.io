@@ -1,3 +1,43 @@
+candidate_names <- function(bib, namestem) {
+  purrr::map(bib, "author") |> 
+    purrr::map(\(a)stringr::str_subset(as.character(a), namestem)) |> 
+    purrr::list_c() |> 
+    unique()
+}
+
+fix_many_authors <- function(bib, focalname, goodname, nmax = 10, ntop = nmax - 4, nfew = ntop - 2) {
+  for(i in seq_along(bib)) {
+    if(length(bib[[i]]$author) > nmax) { # if too many authors
+      
+      nfocal <- which(bib[[i]]$author %in% focalname)[1]
+      if(is.na(nfocal)) {next} # focal name not found
+      if(nfocal <= ntop ){ # case 1. name in top few
+        bib[[i]]$author <- c(bib[[i]]$author[1:ntop], person(family = "others"))  
+      } else {# case 2. name in lower authors
+        bib[[i]]$author <- c(bib[[i]]$author[1:nfew], 
+                             person(family = paste0("others including ", goodname))) 
+        
+      }
+    }
+  }
+  bib
+  
+} 
+
+
+bib_fixes <- function(bib) {
+  # fix mdash in pages, escape quotes in title
+  for (i in seq_along(bib)) {
+    bib[[i]]$pages <- gsub("(?<!-)-(?!-)", "--", gsub(" ", "", bib[[i]]$pages), perl = TRUE)
+    bib[[i]]$title <- gsub(pattern = "\"", replacement = "\\\\\"", x = bib[[i]]$title)
+  }
+  bib
+}
+
+shrink_badge <- function(badge, height = 14) {
+  gsub(pattern = ")]", replacement = paste0(")\\\\{height=\"", height, "\"\\\\}]"), badge)
+}
+
 custom <- RefManageR:::MakeBibLaTeX()
 with(
   custom,
@@ -251,7 +291,8 @@ with(
     if (length(s)) {
       s <- collapse(s)
       s <- gsub(".*\\.org/", "", s)
-      badger::badge_doi(gsub("-", "--", s), color = "green")
+      badger::badge_doi(gsub("-", "--", s), color = "green") |> 
+        shrink_badge()
       }
     }
 )
@@ -276,8 +317,8 @@ with(custom,
 
          res <- switch(docstyle, html = paste0("URL: \\url{", 
                                                res, "}"), 
-                       markdown = badger::badge_cran_release(package, color = "green"),
-                       badger::badge_cran_release(package, color = "green")
+                       markdown = badger::badge_cran_release(package, color = "green") |> shrink_badge(),
+                       badger::badge_cran_release(package, color = "green")|> shrink_badge()
          )
          res
 
@@ -292,7 +333,8 @@ with(custom,
            docstyle,
            html = paste0("URL: \\url{", res, "}"),
            markdown = paste0("URL: [", res, "](", res, ")"),
-           badger::badge_custom(x = "URL", y = stringr::str_replace(res, "-", "--"), color = "green", url = res)
+           badger::badge_custom(x = "URL", y = stringr::str_replace(res, "-", "--"), color = "green", url = res) |> 
+             shrink_badge()
          )
         res
        }
